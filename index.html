@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIVEK · OLA Uber Rapido Chennai</title>
+    <!-- Font Awesome 6 (free) for transport icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+        }
+
+        /* Professional green palette – trust, growth, taxi */
+        :root {
+            --deep-green: #0f3b2c;       /* dark green – authority */
+            --primary-green: #1b7e4b;    /* taxi / cta green */
+            --soft-green: #daf1e4;       /* light background */
+            --card-green: #f0faf4;        /* cards */
+            --white: #ffffff;
+            --grey-light: #f5f8f5;
+            --text-dark: #1e3a2f;
+            --accent-gold: #f3b33d;       /* star / rating */
+            --border-light: #c6e0cf;
+        }
+
+        body {
+            background-color: var(--soft-green);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* header / navigation */
+        .top-bar {
+            background: var(--deep-green);
+            color: white;
+            padding: 14px 0;
+            border-bottom: 3px solid var(--primary-green);
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .logo-area i {
+            color: #b8e35e;
+        }
+
+        .review-badge {
+            background: #1e6e45;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .review-badge i {
+            color: #ffd966;
+            margin-right: 6px;
+        }
+
+        /* Hero section */
+        .hero {
+            background: linear-gradient(105deg, #ffffff 30%, #dcf5e4 100%);
+            border-radius: 0 0 40px 40px;
+            margin-top: 0px;
+            padding: 40px 0 60px;
+            box-shadow: inset 0 -4px 10px rgba(0,40,0,0.05);
+            border-bottom: 2px solid var(--primary-green);
+        }
+
+        .hero .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .hero-text {
+            flex: 1 1 350px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--deep-green);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 i {
+            color: var(--primary-green);
+        }
+
+        .hero-sub {
+            font-size: 1.3rem;
+            color: #1e572e;
+            margin-bottom: 28px;
+            font-weight: 400;
+            max-width: 550px;
+        }
+
+        .cta-big {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 16px 42px;
+            border-radius: 60px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 0 #0a4429, 0 6px 18px rgba(0,80,20,0.3);
+            transition: 0.1s ease;
+            text-decoration: none;
+        }
+
+        .cta-big:hover {
+            background: #209b57;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 0 #0a4429, 0 10px 20px #1f7e4b;
+        }
+
+        .cta-big i {
+            font-size: 2rem;
+        }
+
+        .hero-image {
+            flex: 1 1 300px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            width: 380px;
+            filter: drop-shadow(0 12px 12px #47735b);
+        }
+
+        /* taxi illustration (fontawesome based graphic) */
+        .taxi-graphic {
+            background: #e2f0e2;
+            border-radius: 130px 130px 30px 30px;
+            padding: 30px 20px;
+            display: inline-block;
+            font-size: 8rem;
+            color: var(--deep-green);
+            border: 3px solid var(--primary-green);
+        }
+
+        /* section general */
+        section {
+            margin: 70px 0;
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            font-weight: 650;
+            color: var(--deep-green);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 10px solid var(--primary-green);
+            padding-left: 24px;
+        }
+
+        .section-title i {
+            color: var(--primary-green);
+            font-size: 2.2rem;
+        }
+
+        /* about card */
+        .about-card {
+            background: var(--white);
+            border-radius: 36px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(30, 70, 40, 0.1);
+            border: 1px solid var(--border-light);
+            font-size: 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .google-highlight {
+            background: #ecf7e9;
+            border-radius: 60px;
+            padding: 12px 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            font-weight: 600;
+            color: #2d5e2d;
+            border: 1px solid #b7ddb7;
+        }
+
+        /* services grid */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 28px;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 28px;
+            padding: 28px 20px;
+            box-shadow: 0 10px 18px #d5eeda;
+            border: 1px solid #cae3ce;
+            transition: all 0.15s;
+        }
+
+        .service-card:hover {
+            transform: scale(1.01);
+            border-color: var(--primary-green);
+        }
+
+        .service-card i {
+            font-size: 2.8rem;
+            color: var(--primary-green);
+            margin-bottom: 12px;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            color: #12522e;
+            margin-bottom: 15px;
+        }
+
+        .service-card ul {
+            list-style: none;
+        }
+
+        .service-card li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+        }
+
+        .service-card li i {
+            font-size: 1.2rem;
+            color: #0e6b37;
+        }
+
+        .insurance-badge {
+            background-color: #1d7e48;
+            color: white;
+            border-radius: 40px;
+            padding: 8px 14px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 12px;
+        }
+
+        /* why choose us grid */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
+            gap: 24px;
+        }
+
+        .why-item {
+            background: white;
+            border-radius: 50px;
+            padding: 16px 16px 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 600;
+            font-size: 1.15rem;
+            border: 1px solid #bfdfc0;
+            box-shadow: 0 5px 0 #cfe8d4;
+        }
+
+        .why-item i {
+            background: var(--deep-green);
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        /* service areas chips */
+        .area-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .area-chip {
+            background: white;
+            border: 1.5px solid #2e8b57;
+            padding: 10px 30px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            box-shadow: 0 4px 0 #b2dbb2;
+        }
+
+        .area-chip i {
+            color: var(--primary-green);
+            margin-right: 6px;
+        }
+
+        /* contact row */
+        .contact-row {
+            background: var(--deep-green);
+            color: white;
+            border-radius: 50px;
+            padding: 40px 44px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .contact-details {
+            line-height: 1.8;
+            font-size: 1.2rem;
+        }
+
+        .contact-details i {
+            color: #b6e6b6;
+            width: 32px;
+        }
+
+        .cta-footer {
+            background: var(--accent-gold);
+            color: #1e4a2a;
+            padding: 16px 40px;
+            border-radius: 60px;
+            font-size: 2rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 8px 0 #ab8230;
+            transition: 0.1s;
+        }
+
+        .cta-footer:hover {
+            background: #fcc14e;
+            transform: scale(1.02);
+        }
+
+        /* footer */
+        .footer-links {
+            background: white;
+            border-radius: 40px 40px 0 0;
+            padding: 36px 28px 20px;
+            margin-top: 50px;
+            border-top: 5px solid var(--primary-green);
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #1c492c;
+            text-decoration: none;
+            display: block;
+            margin: 8px 0;
+        }
+
+        .footer-col a:hover {
+            color: #0d6b2c;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #39855c;
+            padding-top: 25px;
+        }
+
+        /* mobile */
+        @media (max-width: 700px) {
+            .hero-text h1 { font-size: 2.2rem; }
+            .cta-big { font-size: 1.5rem; padding: 12px 30px; }
+            .section-title { font-size: 2rem; }
+            .contact-row { flex-direction: column; text-align: center; }
+        }
+        /* icon hint */
+        .taxi-icon-bg {
+            font-size: 7rem;
+            color: var(--primary-green);
+        }
+    </style>
+</head>
+<body>
+    <!-- top bar with google review -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="logo-area">
+                <i class="fas fa-taxi"></i> <span>Green attach</span>
+            </div>
+            <div class="review-badge">
+                <i class="fas fa-star"></i> 4.8 Google rating · 1000+ drivers
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero section with car graphic -->
+    <div class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h1><i class="fas fa-car-side"></i> Attach Your Car or Auto with OLA, Uber & Rapido</h1>
+                <p class="hero-sub">Fast approval with full documentation support. Start earning with your vehicle today.</p>
+                <a href="tel:7397679900" class="cta-big"><i class="fas fa-phone-alt"></i> Call Now – 7397679900</a>
+            </div>
+            <div class="hero-image">
+                <div class="taxi-graphic">
+                    <i class="fas fa-taxi"></i>
+                    <div style="font-size: 1rem; margin-top: 8px;">driver · attachment</div>
+                </div>
+                <!-- illustration represents taxi / driver friendly -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- About section + google highlight -->
+        <section>
+            <div class="section-title"><i class="fas fa-building"></i> Trusted Cab Attachment Office in Chennai</div>
+            <div class="about-card">
+                <div class="about-text">
+                    <p>We help drivers attach their vehicles with OLA, Uber, Rapido and Namma Yatri platforms quickly. Our team provides complete documentation support and insurance guidance to make the process easy for drivers.</p>
+                    <p>📍 Serving drivers from all over Chennai – whether you own a car or auto, we ensure smooth onboarding.</p>
+                    <div class="google-highlight">
+                        <i class="fab fa-google"></i> <strong>Google 4.8 ★</strong> <span style="opacity:0.8;">· 2k+ reviews</span>
+                    </div>
+                </div>
+                <div style="font-size: 3rem; color: #157347;">
+                    <i class="fas fa-file-signature"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services section (cards) -->
+        <section>
+            <div class="section-title"><i class="fas fa-wrench"></i> Our Services</div>
+            <div class="service-grid">
+                <!-- OLA car -->
+                <div class="service-card">
+                    <i class="fas fa-car"></i>
+                    <h3>OLA · Uber · Rapido</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> OLA Car Attachment</li>
+                        <li><i class="fas fa-check"></i> Uber Car Attachment</li>
+                        <li><i class="fas fa-check"></i> Rapido Car Attachment</li>
+                        <li><i class="fas fa-check"></i> Namma Yatri Attachment</li>
+                    </ul>
+                </div>
+                <!-- Auto attachment card -->
+                <div class="service-card">
+                    <i class="fas fa-motorcycle"></i>
+                    <h3>Auto services</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Auto Attachment Services</li>
+                        <li><i class="fas fa-check"></i> OLA / Rapido auto</li>
+                        <li><i class="fas fa-check"></i> Namma Yatri auto</li>
+                    </ul>
+                </div>
+                <!-- Insurance card -->
+                <div class="service-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>T‑Board Insurance</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 3 months insurance</li>
+                        <li><i class="fas fa-check"></i> 6 months insurance</li>
+                        <li><i class="fas fa-check"></i> 1 year insurance</li>
+                    </ul>
+                    <div class="insurance-badge"><i class="fas fa-clock"></i> vehicle insurance assist</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us (icon list) -->
+        <section>
+            <div class="section-title"><i class="fas fa-medal"></i> Why Choose Us</div>
+            <div class="why-grid">
+                <div class="why-item"><i class="fas fa-bolt"></i> Quick Approval</div>
+                <div class="why-item"><i class="fas fa-file-lines"></i> Easy Documentation</div>
+                <div class="why-item"><i class="fas fa-headset"></i> Driver Support</div>
+                <div class="why-item"><i class="fas fa-handshake"></i> Trusted Service</div>
+                <div class="why-item"><i class="fas fa-car-crash"></i> Insurance Assistance</div>
+            </div>
+        </section>
+
+        <!-- service areas -->
+        <section>
+            <div class="section-title"><i class="fas fa-map-marked-alt"></i> Service Areas – Chennai</div>
+            <div class="area-chips">
+                <span class="area-chip"><i class="fas fa-location-dot"></i> Royapuram</span>
+                <span class="area-chip"><i class="fas fa-location-dot"></i> Palavanthangal</span>
+                <span class="area-chip"><i class="fas fa-location-dot"></i> Tambaram</span>
+                <span class="area-chip"><i class="fas fa-location-dot"></i> Ekkaduthangal</span>
+                <span class="area-chip"><i class="fas fa-location-dot"></i> Meenambakkam</span>
+                <span class="area-chip"><i class="fas fa-globe"></i> Across Tamil Nadu</span>
+            </div>
+        </section>
+
+        <!-- Contact + map card -->
+        <section style="margin-bottom: 40px;">
+            <div class="section-title"><i class="fas fa-address-card"></i> Office & Contact</div>
+            <div class="contact-row">
+                <div class="contact-details">
+                    <i class="fas fa-map-pin"></i> <strong>No.90, Shop No.3</strong><br>
+                    MGR Main Road, Meenambakkam Road<br>
+                    National Airports Authority Colony<br>
+                    Palavanthangal, Chennai – 600114<br>
+                    <i class="fas fa-phone-alt" style="margin-top: 12px;"></i> <strong>7397679900</strong><br>
+                    <i class="far fa-clock"></i> Mon–Sat 9am–7pm
+                </div>
+                <a href="tel:7397679900" class="cta-footer"><i class="fas fa-phone"></i> Call Now</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- footer with links -->
+    <footer class="footer-links">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><i class="fas fa-taxi"></i> Green attach</h4>
+                    <p>OLA · Uber · Rapido · Namma Yatri</p>
+                    <p><i class="fas fa-star" style="color: goldenrod;"></i> 4.8 Google reviews</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick links</h4>
+                    <a href="#">Home</a>
+                    <a href="#">Services</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Areas</h4>
+                    <p>Royapuram · Palavanthangal · Tambaram</p>
+                    <p>Ekkaduthangal · Meenambakkam · TN</p>
+                </div>
+            </div>
+            <hr style="border: 1px solid #a8d5a8; margin: 30px 0 20px;">
+            <div class="copyright">
+                <p>© 2025 Green Attachment Office — Chennai. All rights reserved. | Trusted taxi attachment center</p>
+                <p style="font-size: 0.95rem;"><i class="fas fa-phone"></i> 7397679900 | No.90, MGR Main Road, Palavanthangal</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
